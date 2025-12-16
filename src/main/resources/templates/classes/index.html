@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Gestion des Classes</title>
+    <link rel="stylesheet" th:href="@{/css/class.css}">
 </head>
 <body>
 
@@ -30,9 +31,25 @@
         <td th:text="${classe.niveau}"></td>
         <td th:text="${classe.matiere}"></td>
 
+        <td>
+            <a th:href="@{/professeurs/{id}(id=${classe.professeur.id})}"
+               th:text="${classe.professeur.prenom + ' ' + classe.professeur.nom}">
+            </a>
+        </td>
 
-
-
+        <td th:text="${classe.nombreEleves}"></td>
+        <td>
+            <a th:href="@{/classes/{id}/modifier(id=${classe.id})}">
+                <button>Modifier</button>
+            </a>
+            <a th:href="@{/classes/{id}/supprimer(id=${classe.id})}">
+                <button>Supprimer</button>
+            </a>
+        </td>
+    </tr>
 </table>
+
+<p th:if="${classes.isEmpty()}">Aucune classe pour le moment.</p>
+
 </body>
 </html>

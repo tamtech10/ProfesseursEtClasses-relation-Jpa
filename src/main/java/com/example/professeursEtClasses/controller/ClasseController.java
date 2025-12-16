@@ -31,7 +31,7 @@ public class ClasseController {
     @GetMapping("/nouveau")
     public String showFormulaire(Model model) {
         model.addAttribute("classe", new Classe());
-        return "classes/form";
+        return "classes/formulaire";
     }
 
     //Créer un professeur
@@ -52,7 +52,7 @@ public class ClasseController {
     @GetMapping("/{id}/modifier")
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("classe", classeService.getClasseById(id));
-        return "classes/form";
+        return "classes/formulaire";
     }
 
     // Modifier un professeur

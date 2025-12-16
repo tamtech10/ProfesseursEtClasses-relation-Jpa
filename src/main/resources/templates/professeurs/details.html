@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Détail Professeur</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/prof.css}">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
         <th>Nombre d'élèves</th>
     </tr>
 
-    <tr th:each="classe : ${professeur.classes}">
+    <tr th:each="classe : ${professeur.classes.size()}">
         <td th:text="${classe.nom}"></td>
         <td th:text="${classe.niveau}"></td>
         <td th:text="${classe.matiere}"></td>

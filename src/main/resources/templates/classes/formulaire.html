@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Formulaire Classe</title>
+    <link rel="stylesheet" th:href="@{/css/class.css}">
 </head>
 <body>
+
+<h1 th:if="${classe.id == null}">Créer une nouvelle classe</h1>
+<h1 th:if="${classe.id != null}">Modifier la classe</h1>
 
 </body>
 </html>
