@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail Professeur</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h1 th:text="${professeur.prenom + ' ' + professeur.nom}"></h1>
+
+<p>
+    <strong>Email :</strong>
+    <span th:text="${professeur.email}"></span>
+</p>
+
+<h2>Classes enseignées</h2>
+
+<table th:if="${!professeur.classes.isEmpty()}">
+    <tr>
+        <th>Nom</th>
+        <th>Niveau</th>
+        <th>Matière</th>
+        <th>Nombre d'élèves</th>
+    </tr>
+
+    <tr th:each="classe : ${professeur.classes}">
+        <td th:text="${classe.nom}"></td>
+        <td th:text="${classe.niveau}"></td>
+        <td th:text="${classe.matiere}"></td>
+        <td th:text="${classe.nombreEleves}"></td>
+    </tr>
+</table>
+
+<p th:if="${professeur.classes.isEmpty()}">Aucune classe pour ce professeur.</p>
+
+<h3>Statistiques</h3>
+
+<p>
+    <strong>Nombre total de classes :</strong>
+    <span th:text="${professeur.classes}"></span>
+</p>
+
+<div>
+    <a th:href="@{/professeurs/{id}/modifier(id=${professeur.id})}">
+        <button>Modifier</button>
+    </a>
+
+    <a th:href="@{/professeurs/{id}/supprimer(id=${professeur.id})}">
+        <button>Supprimer</button>
+    </a>
+
+    <a th:href="@{/professeurs/}">
+        <button type="button">Retour à la liste</button>
+    </a>
+</div>
+
+</body>
+</html>

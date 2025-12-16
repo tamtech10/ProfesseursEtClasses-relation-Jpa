@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Professeurs</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h1>Gestion des Professeurs</h1>
+
+<a th:href="@{/professeurs/nouveau}">
+    <button>Ajouter un professeur</button>
+</a>
+
+<a th:href="@{/classes/}">
+    <button>Voir toutes les classes</button>
+</a>
+
+<table th:if="${!professeurs.isEmpty()}">
+    <tr>
+        <th>Nom complet</th>
+        <th>Email</th>
+        <th>Nombre de classes</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="professeur : ${professeurs}">
+
+        <td>
+            <a th:href="@{/professeurs/{id}(id=${professeur.id})}"
+               th:text="${professeur.prenom + ' ' + professeur.nom}">
+            </a>
+        </td>
+
+        <td th:text="${professeur.email}"></td>
+
+        <td th:text="${professeur.classes}"></td>
+
+        <td>
+            <a th:href="@{/professeurs/{id}/modifier(id=${professeur.id})}">
+                <button>Modifier</button>
+            </a>
+
+            <a th:href="@{/professeurs/{id}/supprimer(id=${professeur.id})}">
+                <button>Supprimer</button>
+            </a>
+        </td>
+
+    </tr>
+</table>
+
+<p th:if="${professeurs.isEmpty()}">Aucun professeur pour le moment.</p>
+
+</body>
+</html>

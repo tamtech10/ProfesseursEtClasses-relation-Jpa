@@ -27,7 +27,7 @@ public class ProfesseurController {
 @GetMapping("/nouveau")
     public String showFormulaire(Model model) {
     model.addAttribute("professeur", new Professeur());
-    return "professeurs/form";
+    return "professeurs/formulaire";
 }
 
     //Créer un professeur
@@ -41,14 +41,14 @@ public class ProfesseurController {
 @GetMapping("/{id}")
     public String showProfesseur(@PathVariable Long id, Model model) {
         model.addAttribute("professeur", professeurService.getProfesseurById(id));
-        return "professeurs/detail";
+        return "professeurs/details";
 }
 
     //Formulaire de modification
 @GetMapping("/{id}/modifier")
 public String showEditForm(@PathVariable Long id, Model model) {
     model.addAttribute("professeur", professeurService.getProfesseurById(id));
-    return "professeurs/form";
+    return "professeurs/formulaire";
 }
 
     // Modifier un professeur

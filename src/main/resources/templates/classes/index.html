@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Classes</title>
+</head>
+<body>
+
+<h1>Gestion des Classes</h1>
+
+<a th:href="@{/classes/nouveau}">
+    <button>Ajouter une classe</button>
+</a>
+
+<a th:href="@{/professeurs/}">
+    <button>Voir tous les professeurs</button>
+</a>
+
+<table th:if="${!classes.isEmpty()}">
+    <tr>
+        <th>Nom</th>
+        <th>Niveau</th>
+        <th>Matière</th>
+        <th>Professeur</th>
+        <th>Nombre d'élèves</th>
+    </tr>
+
+    <tr th:each="classe : ${classes}">
+        <td th:text="${classe.nom}"></td>
+        <td th:text="${classe.niveau}"></td>
+        <td th:text="${classe.matiere}"></td>
+
+
+
+
+</table>
+</body>
+</html>
