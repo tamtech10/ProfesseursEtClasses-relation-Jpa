@@ -40,7 +40,11 @@ public class ProfesseurController {
     //Voir un professeur
 @GetMapping("/{id}")
     public String showProfesseur(@PathVariable Long id, Model model) {
+    Professeur professeur = professeurService.getProfesseurById(id);
+
         model.addAttribute("professeur", professeurService.getProfesseurById(id));
+        model.addAttribute("nbClasses", professeurService.nbTotalClasses(id));
+        model.addAttribute("nbEleves", professeurService.nbTotalEleves(id));
         return "professeurs/details";
 }
 
@@ -65,4 +69,6 @@ public String showEditForm(@PathVariable Long id, Model model) {
         professeurService.deleteProfesseur(id);
         return "redirect:/professeurs/";
     }
+
+
 }

@@ -9,45 +9,60 @@
 
 <h1>Gestion des Classes</h1>
 
+<div class="actions">
 <a th:href="@{/classes/nouveau}">
-    <button>Ajouter une classe</button>
+    <button class="btn-b1">Ajouter une classe</button>
 </a>
 
 <a th:href="@{/professeurs/}">
-    <button>Voir tous les professeurs</button>
+    <button class="btn-b2">Voir tous les professeurs</button>
 </a>
+</div>
 
-<table th:if="${!classes.isEmpty()}">
-    <tr>
-        <th>Nom</th>
-        <th>Niveau</th>
-        <th>Matière</th>
-        <th>Professeur</th>
-        <th>Nombre d'élèves</th>
-    </tr>
+<div class="classes-container" th:if="${!classes.isEmpty()}">
 
-    <tr th:each="classe : ${classes}">
-        <td th:text="${classe.nom}"></td>
-        <td th:text="${classe.niveau}"></td>
-        <td th:text="${classe.matiere}"></td>
+    <div class="classe-card" th:each="classe : ${classes}">
 
-        <td>
+        <div class="classe-row">
+            <span class="label">Nom :</span>
+            <span th:text="${classe.nom}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Niveau :</span>
+            <span th:text="${classe.niveau}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Matière :</span>
+            <span th:text="${classe.matiere}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Professeur :</span>
             <a th:href="@{/professeurs/{id}(id=${classe.professeur.id})}"
                th:text="${classe.professeur.prenom + ' ' + classe.professeur.nom}">
             </a>
-        </td>
+        </div>
 
-        <td th:text="${classe.nombreEleves}"></td>
-        <td>
+        <div class="classe-row">
+            <span class="label">Nombre d'élèves :</span>
+            <span th:text="${classe.nombreEleves}"></span>
+        </div>
+
+        <div class="classe-actions">
             <a th:href="@{/classes/{id}/modifier(id=${classe.id})}">
                 <button>Modifier</button>
             </a>
             <a th:href="@{/classes/{id}/supprimer(id=${classe.id})}">
                 <button>Supprimer</button>
             </a>
-        </td>
-    </tr>
-</table>
+        </div>
+
+    </div>
+
+</div>
+
 
 <p th:if="${classes.isEmpty()}">Aucune classe pour le moment.</p>
 

@@ -7,5 +7,68 @@
 </head>
 <body>
 
+<h1>Détail de la Classe</h1>
+
+<div class="detail-container">
+
+    <!-- Classe -->
+    <div class="detail-card">
+
+        <div class="detail-row">
+            <span class="label">Nom de la classe :</span>
+            <span th:text="${classe.nom}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Niveau :</span>
+            <span th:text="${classe.niveau}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Matière :</span>
+            <span th:text="${classe.matiere}"></span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Nombre d'élèves :</span>
+            <span th:text="${classe.nombreEleves}"></span>
+        </div>
+
+    </div>
+
+    <!-- Professeur -->
+    <div class="detail-card">
+
+        <h2>Professeur</h2>
+
+        <div class="detail-row">
+            <span class="label">Nom :</span>
+            <a th:href="@{/professeurs/{id}(id=${classe.professeur.id})}"
+               th:text="${classe.professeur.prenom + ' ' + classe.professeur.nom}">
+            </a>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Email :</span>
+            <span th:text="${classe.professeur.email}"></span>
+        </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="detail-actions">
+        <a th:href="@{/classes/}">
+            <button>Retour à la liste</button>
+        </a>
+
+        <a th:href="@{/classes/{id}/modifier(id=${classe.id})}">
+            <button>Modifier</button>
+        </a>
+    </div>
+
+</div>
+
+
+
 </body>
 </html>

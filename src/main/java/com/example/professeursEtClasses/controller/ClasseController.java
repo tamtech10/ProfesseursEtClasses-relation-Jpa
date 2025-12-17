@@ -5,6 +5,7 @@ import com.example.professeursEtClasses.model.Classe;
 import com.example.professeursEtClasses.model.Professeur;
 import com.example.professeursEtClasses.service.ClasseService;
 import com.example.professeursEtClasses.service.ProfesseurService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/classes")
 public class ClasseController {
 
-    private final ClasseService classeService;
+    @Autowired
+    private ClasseService classeService;
+
+    @Autowired
+    private ProfesseurService professeurService;
 
     public ClasseController(ClasseService classeService) {
         this.classeService = classeService;
@@ -27,21 +32,22 @@ public class ClasseController {
         return "classes/index";
     }
 
-    // Formulaire de création
+    // Formulaire de création de la classe
     @GetMapping("/nouveau")
     public String showFormulaire(Model model) {
         model.addAttribute("classe", new Classe());
+        model.addAttribute("professeurs", professeurService.getAllProfesseurs());
         return "classes/formulaire";
     }
 
-    //Créer un professeur
+    //Créer une nouvelle classe
     @PostMapping("/nouveau")
     public String createClasse(@ModelAttribute Classe classe) {
         classeService.createClasse(classe);
         return "redirect:/classes/";
     }
 
-    //Voir un professeur
+    //Voir une classe
     @GetMapping("/{id}")
     public String showClasse(@PathVariable Long id, Model model) {
         model.addAttribute("classe", classeService.getClasseById(id));
@@ -68,4 +74,5 @@ public class ClasseController {
         classeService.deleteClasse(id);
         return "redirect:/classes/";
     }
+
 }

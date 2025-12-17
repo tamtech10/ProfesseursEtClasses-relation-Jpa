@@ -1,5 +1,6 @@
 package com.example.professeursEtClasses.service;
 
+import com.example.professeursEtClasses.model.Classe;
 import com.example.professeursEtClasses.model.Professeur;
 import com.example.professeursEtClasses.repository.ProfesseurRepository;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,29 @@ public class ProfesseurService {
     }
 
     //Supprimer un professeur
-    public void deleteProfesseur(Long id) {
-        professeurRepository.deleteById(id);
+        public void deleteProfesseur (Long id){
+            professeurRepository.deleteById(id);
+        }
+
+
+    //Statistiques
+    //Nombre total de classes
+    public int nbTotalClasses(Long id) {
+        Professeur nbClasseProf = getProfesseurById(id);
+        return nbClasseProf.getClasses().size();
     }
+
+    //Nombre total d'élèves par professeur
+    public int nbTotalEleves(Long id) {
+        int count = 0;
+        Professeur nbElveProf = getProfesseurById(id);
+        for(Classe classe : nbElveProf.getClasses())
+        {
+            count += classe.getNombreEleves();
+        } return count;
+
+    }
+
+
 }
+
