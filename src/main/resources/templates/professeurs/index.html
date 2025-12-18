@@ -9,35 +9,41 @@
 
 <h1>Gestion des Professeurs</h1>
 
-<a th:href="@{/professeurs/nouveau}">
+<div class="actions">
+    <a th:href="@{/professeurs/nouveau}">
     <button>Ajouter un professeur</button>
-</a>
+    </a>
 
-<a th:href="@{/classes/}">
+    <a th:href="@{/classes/}">
     <button>Voir toutes les classes</button>
-</a>
+    </a>
+</div>
 
-<table th:if="${!professeurs.isEmpty()}">
-    <tr>
-        <th>Nom complet</th>
-        <th>Email</th>
-        <th>Nombre de classes</th>
-        <th>Actions</th>
-    </tr>
+<div class="classes-container" th:if="${!professeurs.isEmpty()}">
 
-    <tr th:each="professeur : ${professeurs}">
+    <div class="classe-card" th:each="professeur : ${professeurs}">
 
-        <td>
-            <a th:href="@{/professeurs/{id}(id=${professeur.id})}"
-               th:text="${professeur.prenom + ' ' + professeur.nom}">
+        <div class="classe-row">
+            <span class="label">Nom :</span>
+            <span th:text="${professeur.prenom + ' ' + professeur.nom}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Email :</span>
+            <span th:text="${professeur.email}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Nombre de classes :</span>
+            <span th:text="${professeur.classes.size()}"></span>
+        </div>
+
+
+        <div class="classe-actions">
+            <a th:href="@{/professeurs/{id}(id=${professeur.id})}">
+                <button>Détail</button>
             </a>
-        </td>
 
-        <td th:text="${professeur.email}"></td>
-
-        <td th:text="${professeur.classes}"></td>
-
-        <td>
             <a th:href="@{/professeurs/{id}/modifier(id=${professeur.id})}">
                 <button>Modifier</button>
             </a>
@@ -45,10 +51,11 @@
             <a th:href="@{/professeurs/{id}/supprimer(id=${professeur.id})}">
                 <button>Supprimer</button>
             </a>
-        </td>
+        </div>
 
-    </tr>
-</table>
+
+    </div>
+</div>
 
 <p th:if="${professeurs.isEmpty()}">Aucun professeur pour le moment.</p>
 

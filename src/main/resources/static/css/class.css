@@ -1,13 +1,12 @@
-
 body {
     background-color: #f5f0e6;
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
-/* Kontejner forme */
+
 form {
-    background-color: #e0e0e0; /* sivo */
+    background-color: #e0e0e0;
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
@@ -15,32 +14,32 @@ form {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* polja u formi */
+
 .form-group {
     margin-bottom: 15px;
 }
 
-/* naslovi */
+
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* Input polja i select */
+
 input.form-input,
 select.form-input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #ffffff; /* belo */
+    background-color: #ffffff;
     box-sizing: border-box;
 }
 
-/* Dugmad */
+
 button {
-    background-color: #4a90e2; /* plavo */
+    background-color: #4a90e2;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -49,17 +48,17 @@ button {
     margin-right: 10px;
 }
 
-/* Hover efekat za dugmad */
+
 button:hover {
     background-color: #357ab8;
 }
 
 
 a button {
-    background-color: #4a90e2; /* isto plavo */
+    background-color: #4a90e2;
 }
 
-/* Kontejner svih klasa */
+
 .classes-container {
     display: flex;
     flex-wrap: wrap;
@@ -67,34 +66,34 @@ a button {
     margin-top: 20px;
 }
 
-/* Jedna “kartica” za klasu */
+
 .classe-card {
-    background-color: #e0e0e0; /* sivo */
+    background-color: #e0e0e0;
     padding: 15px;
     border-radius: 10px;
     width: 300px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Red unutar kartice (label + vrednost) */
+
 .classe-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
 }
 
-/* Labeli */
+
 .classe-row .label {
     font-weight: bold;
 }
 
-/* Dugmad unutar kartice */
+
 .classe-actions {
     margin-top: 10px;
 }
 
 .classe-actions button {
-    background-color: #4a90e2; /* plavo */
+    background-color: #4a90e2;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -107,7 +106,7 @@ a button {
     background-color: #357ab8;
 }
 
-/* Opcioni: link za profesora */
+
 .classe-row a {
     color: #4a90e2;
     text-decoration: none;

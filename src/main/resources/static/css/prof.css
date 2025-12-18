@@ -1,91 +1,121 @@
+/*osnova cele stranice, dodaje prostor oko sadrzaja*/
 body {
-    background-color: #f4f6f9;
-    padding: 40px;
-    color: #2c3e50;
+    background-color: #f5f0e6;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-h2 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
+/*odvaja dugmad od ostatka sadrzaja i centrira ih*/
+.actions {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-h3 {
-    margin-top: 30px;
+/*izgled prozora formilara*/
+form {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-p {
-    margin: 10px 0;
-    font-size: 16px;
+/*za polja u formularu*/
+.form-group {
+    margin-bottom: 15px;
 }
 
-table {
-     width: 100%;
-     border-collapse: collapse;
-     margin-top: 15px;
-     background-color: white;
-     border-radius: 6px;
-     overflow: hidden;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: #ecf0f1;
-    color: #2c3e50;
-}
-
-tr:hover {
-    background-color: #f9f9f9;
-}
-
-td a {
-    color: #3498db;
+/*natpisi iznad polja*/
+label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-td a:hover {
-    text-decoration: underline;
+/*polja zauzimaju celu povrsinu, zaobljeni uglovi, bela pozadina*/
+input.form-input,
+select.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-sizing: border-box;
 }
 
-h3 + p {
-    background-color: white;
-    padding: 15px;
-    border-radius: 6px;
-    width: fit-content;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-div {
-    margin-top: 30px;
-}
-
+/*dugmad*/
 button {
-    background-color: #3498db;
+    background-color: #4a90e2;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    margin-right: 8px;
+    margin-right: 10px;
 }
-
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #357ab8;
 }
 
-a {
+
+a button {
+    background-color: #4a90e2;
+}
+
+/*kartice sa informacijama profesora, redjaju se jedna pored druge, uvek su centrirane*/
+.classes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/*kartica profesora*/
+.classe-card {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/*podaci u kartici*/
+.classe-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+
+.classe-row .label {
+    font-weight: bold;
+}
+
+/*dugmad u kartici profesora*/
+.classe-actions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.classe-actions button {
+    padding: 8px 12px;
+    margin-right: 5px;
+}
+
+/*dugme na profesora*/
+.classe-row a {
+    color: #4a90e2;
     text-decoration: none;
+}
+
+.classe-row a:hover {
+    text-decoration: underline;
 }

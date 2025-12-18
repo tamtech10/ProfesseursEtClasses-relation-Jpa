@@ -7,46 +7,72 @@
 </head>
 <body>
 
-<h1 th:text="${professeur.prenom + ' ' + professeur.nom}"></h1>
+<h1>Détail du Professeur</h1>
 
-<p>
-    <strong>Email :</strong>
-    <span th:text="${professeur.email}"></span>
-</p>
+<div class="classe-card">
+
+    <div class="classe-row">
+        <span class="label">Nom :</span>
+        <span th:text="${professeur.prenom + ' ' + professeur.nom}"></span>
+    </div>
+
+    <div class="classe-row">
+        <span class="label">Email :</span>
+        <span th:text="${professeur.email}"></span>
+    </div>
+
+</div>
 
 <h2>Classes enseignées</h2>
 
-<table th:if="${!professeur.classes.isEmpty()}">
-    <tr>
-        <th>Nom</th>
-        <th>Niveau</th>
-        <th>Matière</th>
-        <th>Nombre d'élèves</th>
-    </tr>
+<div class="classes-container" th:if="${!professeur.classes.isEmpty()}">
 
-    <tr th:each="classe : ${professeur.classes.size()}">
-        <td th:text="${classe.nom}"></td>
-        <td th:text="${classe.niveau}"></td>
-        <td th:text="${classe.matiere}"></td>
-        <td th:text="${classe.nombreEleves}"></td>
-    </tr>
-</table>
+    <div class="classe-card" th:each="classe : ${professeur.classes}">
+
+        <div class="classe-row">
+            <span class="label">Nom :</span>
+            <span th:text="${classe.nom}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Niveau :</span>
+            <span th:text="${classe.niveau}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Matière :</span>
+            <span th:text="${classe.matiere}"></span>
+        </div>
+
+        <div class="classe-row">
+            <span class="label">Nombre d'élèves :</span>
+            <span th:text="${classe.nombreEleves}"></span>
+        </div>
+
+    </div>
+
+</div>
+
 
 <p th:if="${professeur.classes.isEmpty()}">Aucune classe pour ce professeur.</p>
 
-<h3>Statistiques</h3>
+<h2>Statistiques</h2>
 
-<p>
-    <strong>Nombre total de classes :</strong>
-    <span th:text="${nbClasses}"></span>
-</p>
+<div class="classe-card">
 
-<p>
-    <strong>Nombre total d'élèves :</strong>
-    <span th:text="${nbEleves}"></span>
-</p>
+    <div class="classe-row">
+        <span class="label">Nombre total de classes :</span>
+        <span th:text="${nbClasses}"></span>
+    </div>
 
-<div>
+    <div class="classe-row">
+        <span class="label">Nombre total d'élèves :</span>
+        <span th:text="${nbEleves}"></span>
+    </div>
+
+</div>
+
+<div class="actions">
     <a th:href="@{/professeurs/{id}/modifier(id=${professeur.id})}">
         <button>Modifier</button>
     </a>
@@ -59,6 +85,7 @@
         <button type="button">Retour à la liste</button>
     </a>
 </div>
+
 
 </body>
 </html>

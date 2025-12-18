@@ -16,19 +16,37 @@
       th:action="${professeur.id == null ? '/professeurs/nouveau' : '/professeurs/' + professeur.id + '/modifier'}"
       method="post">
 
-    <label>Nom :</label>
-    <input type="text" th:field="*{nom}" required /><br/>
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text"  id="nom"
+               class="form-input"
+               th:field="*{nom}"
+               required />
+    </div>
 
-    <label>Prénom :</label>
-    <input type="text" th:field="*{prenom}" required /><br/>
+    <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input type="text"
+               id="prenom"
+               class="form-input"
+               th:field="*{prenom}"
+               required />
+    </div>
 
-    <label>Email :</label>
-    <input type="email" th:field="*{email}" required /><br/>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               class="form-input"
+               th:field="*{email}"
+               required />
+    </div>
 
     <button type="submit">Enregistrer</button>
     <a th:href="@{/professeurs/}">
         <button type="button">Annuler</button>
     </a>
+
 </form>
 
 </body>
