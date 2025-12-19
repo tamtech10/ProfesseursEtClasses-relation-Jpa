@@ -58,6 +58,7 @@ public class ClasseController {
     @GetMapping("/{id}/modifier")
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("classe", classeService.getClasseById(id));
+        model.addAttribute("professeurs", professeurService.getAllProfesseurs());
         return "classes/formulaire";
     }
 
