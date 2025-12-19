@@ -26,6 +26,7 @@ public class ProfesseursEtClassesApplication {
             professeurRepository.save(new Professeur("Nfaidh", "Awatef", "awatef@gmail.com"));
             professeurRepository.save(new Professeur("Bare", "Esteban", "esteban@gmail.com"));
 
+
             Professeur Aumegeas = professeurRepository.findById(1L).get();
             Professeur Cukon = professeurRepository.findById(2L).get();
             Professeur Nfaidh = professeurRepository.findById(3L).get();
@@ -36,6 +37,7 @@ public class ProfesseursEtClassesApplication {
             classeRepository.save(new Classe("classe3", "Bac","Mathématiques", 28, Cukon));
             classeRepository.save(new Classe("classe4", "Bac","Sport" , 22, Aumegeas));
             classeRepository.save(new Classe("classe5", "Bac", "Informatique", 17, Bare));
+            classeRepository.save(new Classe("classe6", "Bts", "Histoire", 19, Cukon));
         };
     }
 

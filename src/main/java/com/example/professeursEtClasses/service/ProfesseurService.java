@@ -64,7 +64,19 @@ public class ProfesseurService {
         {
             count += classe.getNombreEleves();
         } return count;
+    }
 
+    //la moyenne d'élèves par classe pour un professeur
+    public int moyenneEleves(Long id) {
+        Professeur professeur = getProfesseurById(id);
+        if (professeur.getClasses().isEmpty()) {
+            return 0;
+        }
+        int totalEleves = 0;
+        for (Classe classe : professeur.getClasses()) {
+            totalEleves += classe.getNombreEleves();
+        }
+        return totalEleves / professeur.getClasses().size();
     }
 
 

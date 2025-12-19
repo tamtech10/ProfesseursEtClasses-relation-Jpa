@@ -45,6 +45,7 @@ public class ProfesseurController {
         model.addAttribute("professeur", professeurService.getProfesseurById(id));
         model.addAttribute("nbClasses", professeurService.nbTotalClasses(id));
         model.addAttribute("nbEleves", professeurService.nbTotalEleves(id));
+        model.addAttribute("moyenneEleves", professeurService.moyenneEleves(id));
         return "professeurs/details";
 }
 
