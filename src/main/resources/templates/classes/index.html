@@ -35,7 +35,8 @@
 
         <div class="classe-row">
             <span class="label">Matière :</span>
-            <span th:text="${classe.matiere}"></span>
+            <span class="badge" th:classappend="' badge-' + ${classe.matiere}"
+                  th:text="${classe.matiere}"></span>
         </div>
 
         <div class="classe-row">
@@ -51,12 +52,16 @@
         </div>
 
         <div class="classe-actions">
+            <a th:href="@{/classes/{id}(id=${classe.id})}">
+                <button>Détail</button>
+            </a>
             <a th:href="@{/classes/{id}/modifier(id=${classe.id})}">
                 <button>Modifier</button>
             </a>
             <a th:href="@{/classes/{id}/supprimer(id=${classe.id})}">
                 <button>Supprimer</button>
             </a>
+
         </div>
 
     </div>

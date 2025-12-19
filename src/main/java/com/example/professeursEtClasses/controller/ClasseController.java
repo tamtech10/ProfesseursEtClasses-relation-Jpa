@@ -51,7 +51,7 @@ public class ClasseController {
     @GetMapping("/{id}")
     public String showClasse(@PathVariable Long id, Model model) {
         model.addAttribute("classe", classeService.getClasseById(id));
-        return "classes/detail";
+        return "classes/details";
     }
 
     //Formulaire de modification

@@ -116,4 +116,33 @@ a button {
     text-decoration: underline;
 }
 
+.badge {
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.badge-Mathématiques {
+    background-color: #4a90e2;
+}
+
+.badge-Français {
+    background-color: #e94e77;
+}
+
+.badge-Anglais {
+    background-color: #27ae60;
+}
+
+.badge-Sport {
+    background-color: #f39c12;
+}
+
+.badge-Informatique {
+    background-color: #9b59b6;
+}
+
+
 
